@@ -1,11 +1,11 @@
 import express from "express";
 import cors from "cors";
 
-const express = require('express');
+const express2 = require('express');
 
-const app = express();
+const app = express2();
 
-app.use(express.json());
+app.use(express2.json());
 
 
 app.get('/',(request,response)=>{
