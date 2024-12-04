@@ -9,6 +9,6 @@ app.use(cors());
 app.use(router);
 
 
-app.listen(3333, () => {
-    console.log("Servidor rodando na porta: 3333");
+app.listen(3001, () => {
+    console.log("Servidor rodando na porta: 3001");
 });
