@@ -1,12 +1,9 @@
 import express from "express";
 import cors from "cors";
 
-const express2 = require('express');
+const app = express();
 
-const app = express2();
-
-app.use(express2.json());
-
+app.use(express.json());
 
 app.get('/',(request,response)=>{
   return response.json({message:'Server is up'});
