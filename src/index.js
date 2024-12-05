@@ -26,8 +26,8 @@ app.get('/', (req, res) => {
 
 // Configuração do HTTPS com certificado autoassinado
 const httpsOptions = {
-    key: fs.readFileSync('/etc/ssl/private/key.pem'),  // Caminho para a chave privada
-    cert: fs.readFileSync('/etc/ssl/certs/cert.pem'),  // Caminho para o certificado
+    key: fs.readFileSync('../../../../etc/ssl/private/key.pem'),  // Caminho para a chave privada
+    cert: fs.readFileSync('../../../../etc/ssl/certs/cert.pem'),  // Caminho para o certificado
 };
 
 // Cria o servidor HTTPS e escuta na porta 443
