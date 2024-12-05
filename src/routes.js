@@ -26,4 +26,8 @@ router.delete("/appointments/:id_appointment", jwt.ValidateToken, controllerAppo
 // Services
 router.get("/services", jwt.ValidateToken, controllerDoctor.Listar);
 
+// Admins
+router.post("/admin/register", controllerUser.InserirAdmin);
+router.post("/admin/login", controllerUser.LoginAdmin);
+
 export default router;
