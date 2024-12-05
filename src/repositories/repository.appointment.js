@@ -15,27 +15,27 @@ async function Listar(id_user, dt_start, dt_end, id_doctor) {
                             ds.id_service = a.id_service)
     where a.id_appointment > 0`;
 
-        if(id_user) {
-            filtro.push(id_user);
-            sql = sql + "and a.id_user = ? "
-        }
+        // if(id_user) {
+        //     filtro.push(id_user);
+        //     sql = sql + "and a.id_user = ? "
+        // }
 
-        if(dt_start) {
-            filtro.push(dt_start);
-            sql = sql + "and a.booking_date >= ? "
-        }
+        // if(dt_start) {
+        //     filtro.push(dt_start);
+        //     sql = sql + "and a.booking_date >= ? "
+        // }
 
-        if(dt_end) {
-            filtro.push(dt_end);
-            sql = sql + "and a.booking_date <= ? "
-        }
+        // if(dt_end) {
+        //     filtro.push(dt_end);
+        //     sql = sql + "and a.booking_date <= ? "
+        // }
 
-        if(id_doctor) {
-            filtro.push(id_doctor);
-            sql = sql + "and a.id_doctor = ? "
-        }
+        // if(id_doctor) {
+        //     filtro.push(id_doctor);
+        //     sql = sql + "and a.id_doctor = ? "
+        // }
         
-        sql = sql + "order by a.booking_date, a.booking_hour";
+        // sql = sql + "order by a.booking_date, a.booking_hour";
      
     const appointments = await query(sql, filtro);
 
