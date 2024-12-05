@@ -1,6 +1,8 @@
 import { query } from "../database/sqlite.js";
 
-async function Listar(id_user) {
+async function Listar(id_user, dt_start, dt_end, id_doctor) {
+
+    let filtro = [];
 
     let sql = `select a.id_appointment, s.description as service, 
         d.name as doctor, d.speciality,
@@ -11,10 +13,13 @@ async function Listar(id_user) {
     join users u on (u.id_user = a.id_user)
     join doctors_services ds on (ds.id_doctor = a.id_doctor and 
                             ds.id_service = a.id_service)
-    where a.id_user = ?
-    order by a.booking_date, a.booking_hour`;
+    where a.id_appointment > 0`;
 
-    const appointments = await query(sql, id_user);
+    
+
+    // order by a.booking_date, a.booking_hour`;
+    // a.id_user = ?
+    const appointments = await query(sql, filtro);
 
     return appointments;
 }
