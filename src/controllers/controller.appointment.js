@@ -8,6 +8,14 @@ async function ListarByUser(req, res) {
     res.status(200).json(appointments);
 }
 
+async function ListarId(req, res) {
+
+    const id_appointment = req.params.id_appointment;
+    const appointments = await serviceAppointment.ListarId(id_appointment);
+
+    res.status(200).json(appointments);
+}
+
 async function Listar(req, res) {
 
     const dt_start = req.query.dt_start;
@@ -39,4 +47,4 @@ async function Excluir(req, res) {
     res.status(200).json(appointment);
 }
 
-export default { ListarByUser, Listar, Inserir, Excluir };
+export default { ListarByUser, ListarId, Listar, Inserir, Excluir };
