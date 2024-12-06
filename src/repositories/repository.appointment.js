@@ -6,7 +6,7 @@ async function Listar(id_user, dt_start, dt_end, id_doctor) {
 
     let sql = `select a.id_appointment, s.description as service, 
         d.name as doctor, d.speciality,
-    a.booking_date, a.booking_hour, u.name user, ds.price, a.id_doctor, a.id_service
+    a.booking_date, a.booking_hour, u.name user, ds.price, a.id_doctor, a.id_service, a.id_user
     from appointments a
     join services s on (s.id_service = a.id_service)
     join doctors d on (d.id_doctor = a.id_doctor)
@@ -46,7 +46,7 @@ async function ListarId(id_appointment) {
 
     let sql = `select a.id_appointment, s.description as service, 
         d.name as doctor, d.speciality,
-    a.booking_date, a.booking_hour, u.name user, ds.price, a.id_doctor, a.id_service
+    a.booking_date, a.booking_hour, u.name user, ds.price, a.id_doctor, a.id_service, a.id_user
     from appointments a
     join services s on (s.id_service = a.id_service)
     join doctors d on (d.id_doctor = a.id_doctor)
