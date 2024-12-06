@@ -70,6 +70,16 @@ async function Inserir(id_user, id_doctor, id_service, booking_date, booking_hou
     return appointment[0];
 }
 
+async function Editar(id_appointment, id_user, id_doctor, id_service, booking_date, booking_hour) {
+
+    let sql = `update appointments set id_user=?, id_doctor=?, id_service=?, booking_date=?, booking_hour=?
+    where id_appointment=?`;
+
+    await query(sql, [id_user, id_doctor, id_service, booking_date, booking_hour, id_appointment]);
+
+    return { id_appointment };
+}
+
 async function Excluir(id_user, id_appointment) {
 
     let sql = `delete from appointments where id_appointment = ? and id_user = ?`;
@@ -79,4 +89,4 @@ async function Excluir(id_user, id_appointment) {
     return {id_appointment};
 }
 
-export default { Listar, ListarId, Inserir, Excluir }
+export default { Listar, ListarId, Inserir, Editar, Excluir }

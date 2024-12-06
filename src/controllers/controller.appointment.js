@@ -1,3 +1,4 @@
+import { CONSTRAINT } from "sqlite3";
 import serviceAppointment from "../services/service.appointment.js";
 
 async function ListarByUser(req, res) {
@@ -37,6 +38,26 @@ async function Inserir(req, res) {
     res.status(200).json(appointments);
 }
 
+async function InserirAdmin(req, res) {
+
+    const { id_user, id_doctor, id_service, booking_date, booking_hour } = req.body;
+
+    const appointments = await serviceAppointment.Inserir(id_user, id_doctor, id_service, booking_date, booking_hour);
+
+    res.status(200).json(appointments);
+}
+
+async function EditarAdmin(req, res) {
+
+
+    const id_appointment = req.params.id_appointment;
+    const { id_user, id_doctor, id_service, booking_date, booking_hour } = req.body;
+
+    const appointments = await serviceAppointment.Editar(id_appointment, id_user, id_doctor, id_service, booking_date, booking_hour);
+
+    res.status(200).json(appointments);
+}
+
 async function Excluir(req, res) {
 
     const id_user = req.id_user;
@@ -47,4 +68,4 @@ async function Excluir(req, res) {
     res.status(200).json(appointment);
 }
 
-export default { ListarByUser, ListarId, Listar, Inserir, Excluir };
+export default { ListarByUser, ListarId, Listar, Inserir, InserirAdmin, EditarAdmin, Excluir };
